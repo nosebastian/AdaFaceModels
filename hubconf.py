@@ -66,3 +66,5 @@ def adaface_iresnet_50(pretrained: Literal[False, 'casia_webface', 'web_face_4m'
 def adaface_iresnet_100(pretrained: Literal[False, 'ms1mv2_100', 'ms1mv3_100', 'web_face_4m_100', 'web_face_12m_100'] = 'web_face_12m_100'):
     return _load_model('iresnet_100', pretrained, input_size=[112, 112])
 
+def default_transform():
+    return TRANFRORM
