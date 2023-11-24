@@ -6,10 +6,14 @@ from typing import Literal
 from adaface import IR_18, IR_50, IR_101
 import gdown
 
+def _reverse_channels(img):
+    return img[[2, 1, 0], :, :]
+
 TRANFRORM = transforms.Compose([
     transforms.Resize((112, 112)),
     transforms.ToTensor(),
     transforms.ConvertImageDtype(torch.float32),
+    _reverse_channels,
     transforms.Normalize(mean=[0.5]*3, std=[0.5]*3)
 ])
 
