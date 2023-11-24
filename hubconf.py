@@ -15,20 +15,20 @@ TRANFRORM = transforms.Compose([
 
 _URLS = {
     'iresnet_18' : {
-        'casia_webface' : 'https://drive.google.com/file/d/1BURBDplf2bXpmwOL1WVzqtaVmQl9NpPe/view?usp=sharing', 
-        'vgg_face2' : 'https://drive.google.com/file/d/1k7onoJusC0xjqfjB-hNNaxz9u6eEzFdv/view?usp=sharing', 
-        'web_face_4m' : 'https://drive.google.com/file/d/1J17_QW1Oq00EhSWObISnhWEYr2NNrg2y/view?usp=sharing',
+        'casia_webface' : 'https://drive.google.com/uc?id=1BURBDplf2bXpmwOL1WVzqtaVmQl9NpPe&export=download', 
+        'vgg_face2' : 'https://drive.google.com/uc?id=1k7onoJusC0xjqfjB-hNNaxz9u6eEzFdv&export=download', 
+        'web_face_4m' : 'https://drive.google.com/uc?id=1J17_QW1Oq00EhSWObISnhWEYr2NNrg2y&export=download',
     },
     'iresnet_50' : {
-        'casia_webface' : 'https://drive.google.com/file/d/1g1qdg7_HSzkue7_VrW64fnWuHl0YL2C2/view?usp=sharing', 
-        'web_face_4m' : 'https://drive.google.com/file/d/1BmDRrhPsHSbXcWZoYFPJg2KJn1sd3QpN/view?usp=sharing',
-        'ms1mv2' : 'https://drive.google.com/file/d/1eUaSHG4pGlIZK7hBkqjyp2fc2epKoBvI/view?usp=sharing',
+        'casia_webface' : 'https://drive.google.com/uc?id=1g1qdg7_HSzkue7_VrW64fnWuHl0YL2C2&export=download', 
+        'web_face_4m' : 'https://drive.google.com/uc?id=1BmDRrhPsHSbXcWZoYFPJg2KJn1sd3QpN&export=download',
+        'ms1mv2' : 'https://drive.google.com/uc?id=1eUaSHG4pGlIZK7hBkqjyp2fc2epKoBvI&export=download',
     },
     'iresnet_100' : {
-        'ms1mv2_100' : 'https://drive.google.com/file/d/1m757p4-tUU5xlSHLaO04sqnhvqankimN/view?usp=sharing',
-        'ms1mv3_100' : 'https://drive.google.com/file/d/1hRI8YhlfTx2YMzyDwsqLTOxbyFVOqpSI/view?usp=sharing',
-        'web_face_4m_100' : 'https://drive.google.com/file/d/18jQkqB0avFqWa0Pas52g54xNshUOQJpQ/view?usp=sharing',
-        'web_face_12m_100' : 'https://drive.google.com/file/d/1dswnavflETcnAuplZj1IOKKP0eM8ITgT/view?usp=sharing',
+        'ms1mv2_100' : 'https://drive.google.com/uc?id=1m757p4-tUU5xlSHLaO04sqnhvqankimN&export=download',
+        'ms1mv3_100' : 'https://drive.google.com/uc?id=1hRI8YhlfTx2YMzyDwsqLTOxbyFVOqpSI&export=download',
+        'web_face_4m_100' : 'https://drive.google.com/uc?id=18jQkqB0avFqWa0Pas52g54xNshUOQJpQ&export=download',
+        'web_face_12m_100' : 'https://drive.google.com/uc?id=1dswnavflETcnAuplZj1IOKKP0eM8ITgT&export=download',
     }
 }
 
