@@ -46,7 +46,7 @@ def _load_model(model: Literal['iresnet_18', 'iresnet_50', 'iresnet_100'], pretr
         return model_(**kwargs)
     
     if not pretrained in _URLS[model]:
-        raise ValueError(f'Pretrained model {pretrained} not available for {model}, available options are {list(URLS[model].keys())}')
+        raise ValueError(f'Pretrained model {pretrained} not available for {model}, available options are {list(_URLS[model].keys())}')
     
     checkpoint_url = _URLS[model][pretrained]
     checkpoint_path = gdown.cached_download(checkpoint_url)
@@ -58,11 +58,11 @@ def _load_model(model: Literal['iresnet_18', 'iresnet_50', 'iresnet_100'], pretr
     return model
 
 def adaface_iresnet_18(pretrained: Literal[False, 'casia_webface', 'vgg_face2', 'web_face_4m'] = 'web_face_4m'):
-    return _load_model('iresnet_18', pretrained, size=224)
+    return _load_model('iresnet_18', pretrained, input_size=224)
 
 def adaface_iresnet_50(pretrained: Literal[False, 'casia_webface', 'web_face_4m', 'ms1mv2'] = 'web_face_4m'):
-    return _load_model('iresnet_50', pretrained, size=224)
+    return _load_model('iresnet_50', pretrained, input_size=224)
 
 def adaface_iresnet_100(pretrained: Literal[False, 'ms1mv2_100', 'ms1mv3_100', 'web_face_4m_100', 'web_face_12m_100'] = 'web_face_12m_100'):
-    return _load_model('iresnet_100', pretrained, size=224)
+    return _load_model('iresnet_100', pretrained, input_size=224)
 
