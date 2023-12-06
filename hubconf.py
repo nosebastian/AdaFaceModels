@@ -3,7 +3,7 @@ dependencies = ['torch', 'torchvision', 'gdown']
 import torch
 import torchvision.transforms as transforms
 from typing import Literal
-from adaface import IR_18, IR_50, IR_101
+from adaface import IR_18, IR_50, IR_101, AdaFace
 import gdown
 
 def _reverse_channels(img):
@@ -59,16 +59,29 @@ def _load_model(model: Literal['iresnet_18', 'iresnet_50', 'iresnet_100'], pretr
     
     model = model_(**kwargs)
     model.load_state_dict(state_dict)
-    return model
+    
+    head_state_dict = _filter_state_dict_by_prefix(checkpoint['state_dict'], 'head.')
+    head = AdaFace(embedding_size=head_state_dict['kernel'].shape[0], classnum=head_state_dict['kernel'].shape[1])
+    head.load_state_dict(head_state_dict)
+    return model, head
 
 def adaface_iresnet_18(pretrained: Literal[False, 'casia_webface', 'vgg_face2', 'web_face_4m'] = 'web_face_4m'):
-    return _load_model('iresnet_18', pretrained, input_size=[112, 112])
+    return _load_model('iresnet_18', pretrained, input_size=[112, 112])[0]
 
 def adaface_iresnet_50(pretrained: Literal[False, 'casia_webface', 'web_face_4m', 'ms1mv2'] = 'web_face_4m'):
-    return _load_model('iresnet_50', pretrained, input_size=[112, 112])
+    return _load_model('iresnet_50', pretrained, input_size=[112, 112])[0]
 
 def adaface_iresnet_100(pretrained: Literal[False, 'ms1mv2_100', 'ms1mv3_100', 'web_face_4m_100', 'web_face_12m_100'] = 'web_face_12m_100'):
-    return _load_model('iresnet_100', pretrained, input_size=[112, 112])
+    return _load_model('iresnet_100', pretrained, input_size=[112, 112])[0]
+
+def adaface_iresnet_18_head(pretrained: Literal[False, 'casia_webface', 'vgg_face2', 'web_face_4m'] = 'web_face_4m'):
+    return _load_model('iresnet_18', pretrained, input_size=[112, 112])[1]
+
+def adaface_iresnet_50_head(pretrained: Literal[False, 'casia_webface', 'web_face_4m', 'ms1mv2'] = 'web_face_4m'):
+    return _load_model('iresnet_50', pretrained, input_size=[112, 112])[1]
+
+def adaface_iresnet_100_head(pretrained: Literal[False, 'ms1mv2_100', 'ms1mv3_100', 'web_face_4m_100', 'web_face_12m_100'] = 'web_face_12m_100'):
+    return _load_model('iresnet_100', pretrained, input_size=[112, 112])[1]
 
 def default_transform():
     return TRANFRORM
