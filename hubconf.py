@@ -11,7 +11,6 @@ def _reverse_channels(img):
 
 TRANFRORM = transforms.Compose([
     transforms.Resize((112, 112)),
-    transforms.ToTensor(),
     transforms.ConvertImageDtype(torch.float32),
     _reverse_channels,
     transforms.Normalize(mean=[0.5]*3, std=[0.5]*3)
