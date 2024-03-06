@@ -41,6 +41,7 @@ from torch.nn import PReLU
 from torch.nn import Module, Parameter
 from torch import Tensor
 import os
+import math
 
 def build_model(model_name='ir_50'):
     if model_name == 'ir_101':
